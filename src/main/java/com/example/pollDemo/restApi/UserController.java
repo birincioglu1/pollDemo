@@ -47,11 +47,13 @@ public class UserController {
 	
 	
 	@GetMapping("/all")
-	public List<User> hello()
+	public List<User> gelAllUSer()
 	{
 		return userService.getAll();
 	}
-	
+
+
+
 	
 //	@PreAuthorize("hasAnyRole('ADMIN')")
 	@GetMapping("/secured/all")

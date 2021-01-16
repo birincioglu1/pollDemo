@@ -37,7 +37,7 @@ public class HibernateUserDal implements IUserDal {
 	public List<User> getAll() {
 		Session session=entityManager.unwrap(Session.class);
 		List<User> users=session.createQuery("from User",User.class).getResultList();
-	;
+
 		return users;
 	}
 
@@ -45,10 +45,10 @@ public class HibernateUserDal implements IUserDal {
 	@Transactional
 	public void add(User user) {
 		Session session=entityManager.unwrap(Session.class);
-		
+
 		session.saveOrUpdate(user);
-		
-		
+
+
 	}
 
 	@Override

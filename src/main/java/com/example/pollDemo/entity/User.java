@@ -1,28 +1,11 @@
 package com.example.pollDemo.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 
+import javax.persistence.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import javax.persistence.JoinColumn;
-
-import javax.persistence.Lob;
-
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -76,13 +59,15 @@ public class User extends BaseEntity {
 	private int age;
 	private String education;
 	private String job;
-	private String phone;
-	private String email;
-	
+
+	@OneToMany(mappedBy ="user" ,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<UserContact> contacts;
+
+
 	@JsonManagedReference
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="address_id")
-	private Address address;
+	@JoinColumn(name="location_id")
+	private UserLocation userLocation;
 	
 	
 	

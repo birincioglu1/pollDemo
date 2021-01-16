@@ -17,6 +17,8 @@ public interface IUserService {
 	void update(User user);
 	User userFindById(long userId);
 	UserInfo findUserInfoById(long userId);
+
+
 	void customAdd();
 	//UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }

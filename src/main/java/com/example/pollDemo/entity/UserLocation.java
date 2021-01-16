@@ -24,20 +24,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "address")
-public class Address extends BaseEntity {
+@Table(name = "user_location")
+public class UserLocation extends BaseEntity {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="address_id")
+	@Column(name="location_id")
 	private int id;
 	 
 	private String latitude;
 	private String longitude;
 	
 	@JsonBackReference
-	@OneToOne(mappedBy = "address")
+	@OneToOne(mappedBy = "userLocation")
 	private User user;
 	
 }
